@@ -16,15 +16,10 @@
         /* --- 1. VARIABEL & RESET --- */
         :root {
             --bg-color: #0f172a;
-            /* Navy Gelap */
             --card-bg: #1e293b;
-            /* Navy Lebih Terang */
             --text-primary: #f1f5f9;
-            /* Putih Tulang */
             --text-secondary: #94a3b8;
-            /* Abu-abu Kebiruan */
             --accent-color: #38bdf8;
-            /* Biru Langit Neon */
             --gradient: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
         }
 
@@ -296,6 +291,18 @@
             margin-bottom: 3rem;
         }
 
+        /* --- GAYA SCROLL REVEAL --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         /* --- RESPONSIVE MOBILE --- */
         .menu-toggle {
             display: none;
@@ -326,25 +333,31 @@
                 display: flex;
             }
 
-            /* Ubah navbar link menjadi dropdown */
+            /* Menu Dropdown Mobile dengan Animasi */
             .nav-links {
-                display: none;
-                /* Sembunyi secara default */
-                flex-direction: column;
                 position: absolute;
                 top: 100%;
                 left: 0;
                 width: 100%;
-                background: var(--card-bg);
-                padding: 1.5rem 0;
+                background: rgba(30, 41, 59, 0.95);
+                backdrop-filter: blur(12px);
+                flex-direction: column;
+                padding: 2rem 0;
                 text-align: center;
+                gap: 1.5rem;
                 border-bottom: 1px solid rgba(255, 255, 255, 0.1);
                 box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(-20px);
+                transition: all 0.3s ease-in-out;
             }
 
             .nav-links.active {
-                display: flex;
-                /* Tampil saat ada class active */
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
             }
         }
 
@@ -365,13 +378,11 @@
             text-decoration: none;
             box-shadow: 0 4px 15px rgba(56, 189, 248, 0.4);
             opacity: 0;
-            /* Disembunyikan pada awalnya */
             visibility: hidden;
             transition: all 0.3s ease;
             z-index: 999;
         }
 
-        /* Kelas ini akan ditambahkan nanti untuk memunculkan tombol */
         .back-to-top.show {
             opacity: 1;
             visibility: visible;
@@ -379,6 +390,27 @@
 
         .back-to-top:hover {
             transform: translateY(-5px);
+        }
+
+        /* --- TEMA TERANG --- */
+        body.light-mode {
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+        }
+
+        /* Gaya untuk tombol tema */
+        .btn-theme {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .btn-theme:hover {
+            transform: scale(1.2);
         }
     </style>
 </head>
@@ -399,6 +431,7 @@
             <li><a href="#about">Tentang</a></li>
             <li><a href="#portfolio">Proyek</a></li>
             <li><a href="#contact" class="btn-contact">Hubungi Kami</a></li>
+            <li><button id="theme-toggle" class="btn-theme" title="Ganti Tema">☀️</button></li>
         </ul>
     </nav>
 
@@ -413,7 +446,7 @@
 
     <section id="about" class="container">
         <div class="split-layout">
-            <div class="about-text">
+            <div class="about-text reveal">
                 <h2 class="section-title" style="text-align: left;">Tentang Kami 🌐</h2>
                 <p>Kami berdedikasi membangun pengalaman web yang intuitif. Dengan latar belakang di pengembangan
                     front-end dan ketertarikan mendalam pada teknologi AI, saya selalu mencari cara baru untuk
@@ -422,7 +455,7 @@
                     memecahkan masalah nyata pengguna.</p>
             </div>
 
-            <div id="skills" class="skills-list">
+            <div id="skills" class="skills-list reveal">
                 <h2 class="section-title" style="text-align: left;">Keahlian 🛠️</h2>
                 <div class="tags">
 
@@ -472,10 +505,10 @@
     </section>
 
     <section id="portfolio" class="container">
-        <h2 class="section-title"><span>Proyek Website Unggulan</span> ✅</h2>
+        <h2 class="section-title reveal"><span>Proyek Website Unggulan</span> ✅</h2>
         <div class="project-grid">
 
-            <div class="project-card">
+            <div class="project-card reveal">
                 <div class="card-image">
                     <img src="porto3.png" alt="Infografis">
                 </div>
@@ -488,29 +521,31 @@
                 </div>
             </div>
 
-            <div class="project-card">
+            <div class="project-card reveal">
                 <div class="card-image">
                     <img src="porto2.png" alt="Soree Coffe">
                 </div>
                 <div class="card-info">
                     <h3>Soree Coffe</h3>
                     <p>Landing page responsif untuk bisnis F&B. Menampilkan menu interaktif dan integrasi lokasi.</p>
-                    <a href="https://eizitpie15production.github.io/soree/" target="_blank" class="link-arrow">Lihat Portopolio Website Ini &rarr;</a>
+                    <a href="https://eizitpie15production.github.io/soree/" target="_blank" class="link-arrow">Lihat
+                        Portopolio Website Ini &rarr;</a>
                 </div>
             </div>
 
-            <div class="project-card">
+            <div class="project-card reveal">
                 <div class="card-image">
                     <img src="porto5.png" alt="X Space Cafe">
                 </div>
                 <div class="card-info">
                     <h3>X Space Cafe</h3>
                     <p>Landing page responsif untuk bisnis F&B. Menampilkan menu interaktif dan integrasi lokasi.</p>
-                    <a href="https://sobatwebsitemu.github.io/xspacecafe/" target="_blank" class="link-arrow">Lihat Portopolio Website Ini &rarr;</a>
+                    <a href="https://sobatwebsitemu.github.io/xspacecafe/" target="_blank" class="link-arrow">Lihat
+                        Portopolio Website Ini &rarr;</a>
                 </div>
             </div>
 
-            <div class="project-card">
+            <div class="project-card reveal">
                 <div class="card-image">
                     <img src="porto6.png" alt="Mama Iceland">
                 </div>
@@ -518,11 +553,12 @@
                     <h3>Mama Iceland</h3>
                     <p>Landing page responsif untuk bisnis F&B Ice Cream. Menampilkan menu interaktif dan integrasi
                         lokasi.</p>
-                    <a href="https://sobatwebsitemu.github.io/mamaiceland/" target="_blank" class="link-arrow">Lihat Portopolio Website Ini &rarr;</a>
+                    <a href="https://sobatwebsitemu.github.io/mamaiceland/" target="_blank" class="link-arrow">Lihat
+                        Portopolio Website Ini &rarr;</a>
                 </div>
             </div>
 
-            <div class="project-card">
+            <div class="project-card reveal">
                 <div class="card-image">
                     <img src="porto7.png" alt="Maldif Home">
                 </div>
@@ -530,11 +566,12 @@
                     <h3>Maldif Home</h3>
                     <p>Landing page responsif Untuk Bisnis Penginapan Kos yang Menampilkan menu harga interaktif dan
                         integrasi lokasi.</p>
-                    <a href="https://alvinzulian.github.io/maldifhome/" target="_blank" class="link-arrow">Lihat Portopolio Website Ini &rarr;</a>
+                    <a href="https://alvinzulian.github.io/maldifhome/" target="_blank" class="link-arrow">Lihat
+                        Portopolio Website Ini &rarr;</a>
                 </div>
             </div>
 
-            <div class="project-card">
+            <div class="project-card reveal">
                 <div class="card-image">
                     <img src="porto8.png" alt="Galaksi Kos">
                 </div>
@@ -542,16 +579,17 @@
                     <h3>Galaksi Kos</h3>
                     <p>Landing page responsif Untuk Bisnis Penginapan Kos yang Menampilkan menu harga interaktif dan
                         integrasi lokasi.</p>
-                    <a href="https://sobatwebsitemu.github.io/GalaksiKos/" target="_blank" class="link-arrow">Lihat Portopolio Website Ini &rarr;</a>
+                    <a href="https://sobatwebsitemu.github.io/GalaksiKos/" target="_blank" class="link-arrow">Lihat
+                        Portopolio Website Ini &rarr;</a>
                 </div>
             </div>
 
         </div>
     </section>
 
-<footer id="contact">
+    <footer id="contact" class="reveal">
         <h2 style="margin-bottom: 1rem; color: #fff;">Siap Memulai Proyek?</h2>
-        <p style="margin-bottom: 2rem;">Mari diskusikan bagaimana saya bisa membantu bisnis Anda berkembang.</p>
+        <p style="margin-bottom: 2rem;">Mari diskusikan bagaimana saya bisa membantu bisnis Anda berkembang.<br>[ Silahkan Hubungi Kami di bawah ini ]<br>⬇️⬇️⬇️</p>
 
         <div class="footer-buttons">
             <a href="https://t.me/mreizitpie?text=Halo%20Kak%20Mau%20Tanya%20Dong?..." target="_blank"
@@ -561,7 +599,7 @@
             <a href="mailto:eizitpie1509@gmail.com" class="btn-contact">Email</a>
         </div>
 
-        <p style="font-size: 0.8rem;">&copy; 2025 [CV Portopolio]. Dibuat Oleh Eizitpie Production</p>
+        <p style="font-size: 0.8rem;">&copy; 2025 [CV Portopolio Website]. Dibuat Oleh Eizitpie Production</p>
     </footer>
 
     <a href="#beranda" class="back-to-top" id="backToTop">
@@ -577,18 +615,56 @@
             navLinks.classList.toggle('active');
         });
 
+        // Menutup menu saat link diklik (opsional, tapi disarankan)
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
         // Logika Tombol Kembali ke Atas
         const backToTopBtn = document.getElementById("backToTop");
 
         window.addEventListener("scroll", () => {
-            // Jika halaman digulir lebih dari 300px ke bawah, tambahkan kelas 'show'
             if (window.scrollY > 300) {
                 backToTopBtn.classList.add("show");
             } else {
-                // Jika kembali ke atas, hapus kelas 'show'
                 backToTopBtn.classList.remove("show");
+            }
+        });
+
+        // Logika Scroll Reveal
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    // Hapus komentar pada baris di bawah ini jika ingin animasi hanya dipicu satu kali
+                    // observer.unobserve(entry.target); 
+                }
+            });
+        }, {
+            threshold: 0.15
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // Logika Tema Terang/Gelap
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('light-mode');
+
+            // Ubah ikon berdasarkan tema saat ini
+            if (body.classList.contains('light-mode')) {
+                themeToggle.textContent = '🌙';
+            } else {
+                themeToggle.textContent = '☀️';
             }
         });
     </script>
 </body>
+
 </html>
