@@ -4,20 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <meta name="description" content="Portofolio Eizitpie Production. Web Developer & AI Enthusiast yang fokus mengubah ide kreatif menjadi solusi digital fungsional.">
-    <meta name="keywords" content="Web Developer, Front-end, AI Enthusiast, Jasa Pembuatan Website, Portofolio Eizitpie">
+
+    <meta name="description"
+        content="Portofolio Eizitpie Production. Web Developer & AI Enthusiast yang fokus mengubah ide kreatif menjadi solusi digital fungsional.">
+    <meta name="keywords"
+        content="Web Developer, Front-end, AI Enthusiast, Jasa Pembuatan Website, Portofolio Eizitpie">
     <meta name="author" content="Eizitpie Production">
 
     <title>Portofolio Profesional | Web Developer</title>
     <style>
         /* --- 1. VARIABEL & RESET --- */
         :root {
-            --bg-color: #0f172a; /* Navy Gelap */
-            --card-bg: #1e293b; /* Navy Lebih Terang */
-            --text-primary: #f1f5f9; /* Putih Tulang */
-            --text-secondary: #94a3b8; /* Abu-abu Kebiruan */
-            --accent-color: #38bdf8; /* Biru Langit Neon */
+            --bg-color: #0f172a;
+            /* Navy Gelap */
+            --card-bg: #1e293b;
+            /* Navy Lebih Terang */
+            --text-primary: #f1f5f9;
+            /* Putih Tulang */
+            --text-secondary: #94a3b8;
+            /* Abu-abu Kebiruan */
+            --accent-color: #38bdf8;
+            /* Biru Langit Neon */
             --gradient: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
         }
 
@@ -280,7 +287,7 @@
             color: var(--accent-color);
             text-decoration: none;
         }
-        
+
         .footer-buttons {
             display: flex;
             justify-content: center;
@@ -321,7 +328,8 @@
 
             /* Ubah navbar link menjadi dropdown */
             .nav-links {
-                display: none; /* Sembunyi secara default */
+                display: none;
+                /* Sembunyi secara default */
                 flex-direction: column;
                 position: absolute;
                 top: 100%;
@@ -331,12 +339,46 @@
                 padding: 1.5rem 0;
                 text-align: center;
                 border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-                box-shadow: 0 10px 15px rgba(0,0,0,0.3);
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
             }
 
             .nav-links.active {
-                display: flex; /* Tampil saat ada class active */
+                display: flex;
+                /* Tampil saat ada class active */
             }
+        }
+
+        /* --- GAYA TOMBOL KEMBALI KE ATAS --- */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--gradient);
+            color: #fff;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.4);
+            opacity: 0;
+            /* Disembunyikan pada awalnya */
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        /* Kelas ini akan ditambahkan nanti untuk memunculkan tombol */
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
         }
     </style>
 </head>
@@ -345,7 +387,7 @@
 
     <nav class="navbar">
         <div class="logo">Portofolio Website</div>
-        
+
         <div class="menu-toggle" id="mobile-menu">
             <span class="bar"></span>
             <span class="bar"></span>
@@ -353,34 +395,37 @@
         </div>
 
         <ul class="nav-links">
+            <li><a href="#beranda">Beranda</a></li>
             <li><a href="#about">Tentang</a></li>
-            <li><a href="#skills">Keahlian</a></li>
             <li><a href="#portfolio">Proyek</a></li>
-            <li><a href="https://t.me/mreizitpie" class="btn-contact">Hubungi Saya</a></li>
+            <li><a href="#contact" class="btn-contact">Hubungi Kami</a></li>
         </ul>
     </nav>
 
-    <header class="hero">
+    <header id="beranda" class="hero">
         <div class="hero-content">
             <img src="foto-anda.jpg" alt="Foto Profil" class="profile-pic">
             <h1>Halo, Kami <br><span style="color:var(--accent-color)">[Eizitpie Production]</span></h1>
         </div>
         <p>Web Developer & AI Enthusiast. Mengubah ide kreatif menjadi solusi digital yang fungsional dan estetis.</p>
-        <a href="#portfolio" class="btn-primary">Lihat Karya Saya</a>
+        <a href="#portfolio" class="btn-primary">Lihat Porto Website Kami</a>
     </header>
 
     <section id="about" class="container">
         <div class="split-layout">
             <div class="about-text">
-                <h2 class="section-title" style="text-align: left;">Tentang Saya 👤</h2>
-                <p>Saya berdedikasi membangun pengalaman web yang intuitif. Dengan latar belakang di pengembangan front-end dan ketertarikan mendalam pada teknologi AI, saya selalu mencari cara baru untuk mengoptimalkan alur kerja digital.</p>
-                <p>Fokus saya saat ini adalah menciptakan antarmuka yang tidak hanya indah dilihat tetapi juga memecahkan masalah nyata pengguna.</p>
+                <h2 class="section-title" style="text-align: left;">Tentang Kami 🌐</h2>
+                <p>Kami berdedikasi membangun pengalaman web yang intuitif. Dengan latar belakang di pengembangan
+                    front-end dan ketertarikan mendalam pada teknologi AI, saya selalu mencari cara baru untuk
+                    mengoptimalkan alur kerja digital.</p>
+                <p>Fokus saya saat ini adalah menciptakan antarmuka yang tidak hanya indah dilihat tetapi juga
+                    memecahkan masalah nyata pengguna.</p>
             </div>
-            
+
             <div id="skills" class="skills-list">
                 <h2 class="section-title" style="text-align: left;">Keahlian 🛠️</h2>
                 <div class="tags">
-                    
+
                     <div class="skill-item">
                         <div class="skill-info">
                             <span>HTML & CSS</span>
@@ -390,7 +435,7 @@
                             <div class="progress-bar-fill" style="width: 95%;"></div>
                         </div>
                     </div>
-                    
+
                     <div class="skill-item">
                         <div class="skill-info">
                             <span>JavaScript (ES6+)</span>
@@ -400,7 +445,7 @@
                             <div class="progress-bar-fill" style="width: 85%;"></div>
                         </div>
                     </div>
-                    
+
                     <div class="skill-item">
                         <div class="skill-info">
                             <span>PHP & Laravel</span>
@@ -410,7 +455,7 @@
                             <div class="progress-bar-fill" style="width: 80%;"></div>
                         </div>
                     </div>
-                    
+
                     <div class="skill-item">
                         <div class="skill-info">
                             <span>UI/UX Design</span>
@@ -436,8 +481,10 @@
                 </div>
                 <div class="card-info">
                     <h3>CV Azizah Mandiri</h3>
-                    <p>Toko Penyedia Paving Block(Biasa/K-200), Batako (Lubang/Solid), Kastin(Biasa/Tanjak), Pagar Panel Beton.</p>
-                    <a href="https://eizitpie15production.github.io/CVAzizahMandiri/" target="_blank" class="link-arrow">Lihat Live Demo &rarr;</a>
+                    <p>Toko Penyedia Paving Block(Biasa/K-200), Batako (Lubang/Solid), Kastin(Biasa/Tanjak), Pagar Panel
+                        Beton.</p>
+                    <a href="https://eizitpie15production.github.io/CVAzizahMandiri/" target="_blank"
+                        class="link-arrow">Lihat Live Demo &rarr;</a>
                 </div>
             </div>
 
@@ -448,7 +495,8 @@
                 <div class="card-info">
                     <h3>Soree Coffe</h3>
                     <p>Landing page responsif untuk bisnis F&B. Menampilkan menu interaktif dan integrasi lokasi.</p>
-                    <a href="https://eizitpie15production.github.io/soree/" target="_blank" class="link-arrow">Lihat Live Demo &rarr;</a>
+                    <a href="https://eizitpie15production.github.io/soree/" target="_blank" class="link-arrow">Lihat
+                        Live Demo &rarr;</a>
                 </div>
             </div>
 
@@ -459,7 +507,8 @@
                 <div class="card-info">
                     <h3>X Space Cafe</h3>
                     <p>Landing page responsif untuk bisnis F&B. Menampilkan menu interaktif dan integrasi lokasi.</p>
-                    <a href="https://sobatwebsitemu.github.io/xspacecafe/" target="_blank" class="link-arrow">Lihat Live Demo &rarr;</a>
+                    <a href="https://sobatwebsitemu.github.io/xspacecafe/" target="_blank" class="link-arrow">Lihat Live
+                        Demo &rarr;</a>
                 </div>
             </div>
 
@@ -469,8 +518,10 @@
                 </div>
                 <div class="card-info">
                     <h3>Mama Iceland</h3>
-                    <p>Landing page responsif untuk bisnis F&B Ice Cream. Menampilkan menu interaktif dan integrasi lokasi.</p>
-                    <a href="https://sobatwebsitemu.github.io/mamaiceland/" target="_blank" class="link-arrow">Lihat Live Demo &rarr;</a>
+                    <p>Landing page responsif untuk bisnis F&B Ice Cream. Menampilkan menu interaktif dan integrasi
+                        lokasi.</p>
+                    <a href="https://sobatwebsitemu.github.io/mamaiceland/" target="_blank" class="link-arrow">Lihat
+                        Live Demo &rarr;</a>
                 </div>
             </div>
 
@@ -480,8 +531,10 @@
                 </div>
                 <div class="card-info">
                     <h3>Maldif Home</h3>
-                    <p>Landing page responsif Untuk Bisnis Penginapan Kos yang Menampilkan menu harga interaktif dan integrasi lokasi.</p>
-                    <a href="https://alvinzulian.github.io/maldifhome/" target="_blank" class="link-arrow">Lihat Live Demo &rarr;</a>
+                    <p>Landing page responsif Untuk Bisnis Penginapan Kos yang Menampilkan menu harga interaktif dan
+                        integrasi lokasi.</p>
+                    <a href="https://alvinzulian.github.io/maldifhome/" target="_blank" class="link-arrow">Lihat Live
+                        Demo &rarr;</a>
                 </div>
             </div>
 
@@ -491,33 +544,55 @@
                 </div>
                 <div class="card-info">
                     <h3>Galaksi Kos</h3>
-                    <p>Landing page responsif Untuk Bisnis Penginapan Kos yang Menampilkan menu harga interaktif dan integrasi lokasi.</p>
-                    <a href="https://sobatwebsitemu.github.io/GalaksiKos/" target="_blank" class="link-arrow">Lihat Live Demo &rarr;</a>
+                    <p>Landing page responsif Untuk Bisnis Penginapan Kos yang Menampilkan menu harga interaktif dan
+                        integrasi lokasi.</p>
+                    <a href="https://sobatwebsitemu.github.io/GalaksiKos/" target="_blank" class="link-arrow">Lihat Live
+                        Demo &rarr;</a>
                 </div>
             </div>
 
         </div>
     </section>
 
-    <footer id="contact">
+<footer id="contact">
         <h2 style="margin-bottom: 1rem; color: #fff;">Siap Memulai Proyek?</h2>
         <p style="margin-bottom: 2rem;">Mari diskusikan bagaimana saya bisa membantu bisnis Anda berkembang.</p>
-        
+
         <div class="footer-buttons">
-            <a href="https://t.me/mreizitpie?text=Halo%20Kak%20Mau%20Tanya%20Dong?..." target="_blank" class="btn-contact">Telegram</a>
-            <a href="https://wa.me/6282285513028?text=Halo%20Kak%20Mau%20Tanya%20Dong?..." target="_blank" class="btn-contact">WhatsApp</a>
+            <a href="https://t.me/mreizitpie?text=Halo%20Kak%20Mau%20Tanya%20Dong?..." target="_blank"
+                class="btn-contact">Telegram</a>
+            <a href="https://wa.me/6282285513028?text=Halo%20Kak%20Mau%20Tanya%20Dong?..." target="_blank"
+                class="btn-contact">WhatsApp</a>
             <a href="mailto:eizitpie1509@gmail.com" class="btn-contact">Email</a>
         </div>
-        
+
         <p style="font-size: 0.8rem;">&copy; 2025 [CV Portopolio]. Dibuat Oleh Eizitpie Production</p>
     </footer>
 
+    <a href="#beranda" class="back-to-top" id="backToTop">
+        &uarr;
+    </a>
+
     <script>
+        // Logika Menu Mobile
         const mobileMenu = document.getElementById('mobile-menu');
         const navLinks = document.querySelector('.nav-links');
 
         mobileMenu.addEventListener('click', () => {
             navLinks.classList.toggle('active');
+        });
+
+        // Logika Tombol Kembali ke Atas
+        const backToTopBtn = document.getElementById("backToTop");
+
+        window.addEventListener("scroll", () => {
+            // Jika halaman digulir lebih dari 300px ke bawah, tambahkan kelas 'show'
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add("show");
+            } else {
+                // Jika kembali ke atas, hapus kelas 'show'
+                backToTopBtn.classList.remove("show");
+            }
         });
     </script>
 </body>
